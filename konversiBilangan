@@ -1,11 +1,9 @@
-package AOK;
 import java.util.Scanner;
 public class konversiBilangan {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int opsi;
-        int desimal = 0, digit, a=1;
-        int inputDesimal;
+        int desimal, inputDesimal;
         String inputBiner, inputHexa;
 
         do {
@@ -23,7 +21,7 @@ public class konversiBilangan {
             opsi = input.nextInt();
 
             switch (opsi) {
-                case 1:
+                case 1: //biner ke desimal
                     System.out.print("Masukkan bilangan biner: ");
                     inputBiner = input.next();
                     desimal = Integer.parseInt(inputBiner, 2);
@@ -31,7 +29,7 @@ public class konversiBilangan {
                     // referensi source code: https://www.javatpoint.com/java-binary-to-decimal
                     break;
 
-                case 2:
+                case 2: //desimal ke biner
                     System.out.print("Masukkan angka desimal: ");
                     int n = input.nextInt();
                     System.out.println();
@@ -56,18 +54,18 @@ public class konversiBilangan {
                     System.out.println(Integer.toHexString(desimal));
                     break;
 
-                case 4:
-                    System.out.print("Masukkan bilangan hexadesimal: ");
+                case 4: //heksadesimal ke biner
+                    System.out.print("Masukkan bilangan/karakter hexadesimal: ");
                     inputHexa = input.nextLine();
                     break;
 
-                case 5:
+                case 5: //desimal ke heksadesimal
                     System.out.print("Masukkan angka desimal: ");
                     inputDesimal = input.nextInt();
                     System.out.println(Integer.toHexString(inputDesimal).toUpperCase());
                     break;
-                    
-                case 6:
+
+                case 6: //heksadesimal ke desimal
                     System.out.print("Masukkan bilangan/karakter hexadesimal: ");
                     inputHexa = input.next();
                     System.out.println(Integer.parseInt(inputHexa, 16));
@@ -76,3 +74,4 @@ public class konversiBilangan {
         } while (opsi != 0);
     }
 }
+// referensi source code: https://www.javatpoint.com/
