@@ -1,0 +1,78 @@
+package AOK;
+import java.util.Scanner;
+public class konversiBilangan {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int opsi;
+        int desimal = 0, digit, a=1;
+        int inputDesimal;
+        String inputBiner, inputHexa;
+
+        do {
+            System.out.println("""
+                    Program Konversi Bilangan
+                    Menu:
+                    1. Biner ke Desimal
+                    2. Desimal ke biner
+                    3. Biner ke Hexadesimal
+                    4. Hexadesimal ke Biner
+                    5. Desimal ke hexadesimal
+                    6. Hexadesimal ke Desimal
+                    0. keluar""");
+            System.out.print("Pilihan Anda: ");
+            opsi = input.nextInt();
+
+            switch (opsi) {
+                case 1:
+                    System.out.print("Masukkan bilangan biner: ");
+                    inputBiner = input.next();
+                    desimal = Integer.parseInt(inputBiner, 2);
+                    System.out.printf("%d\n", desimal);
+                    // referensi source code: https://www.javatpoint.com/java-binary-to-decimal
+                    break;
+
+                case 2:
+                    System.out.print("Masukkan angka desimal: ");
+                    int n = input.nextInt();
+                    System.out.println();
+                    int bagi, sisa = 0;
+                    String biner="";
+                    String stringSisa="";
+
+                    while (n > 0) {
+                        bagi = n / 2;
+                        sisa = n % 2;
+                        stringSisa = String.valueOf(sisa);
+                        biner = stringSisa+biner;
+                        n = bagi;
+                    }
+                    System.out.printf("%s\n", biner);
+                    break;
+
+                case 3: //biner ke heksadesimal melalui desimal
+                    System.out.print("Masukkan bilangan biner: ");
+                    inputBiner = input.next();
+                    desimal = Integer.parseInt(inputBiner, 2);
+                    System.out.println(Integer.toHexString(desimal));
+                    break;
+
+                case 4:
+                    System.out.print("Masukkan bilangan hexadesimal: ");
+                    inputHexa = input.nextLine();
+                    break;
+
+                case 5:
+                    System.out.print("Masukkan angka desimal: ");
+                    inputDesimal = input.nextInt();
+                    System.out.println(Integer.toHexString(inputDesimal).toUpperCase());
+                    break;
+                    
+                case 6:
+                    System.out.print("Masukkan bilangan/karakter hexadesimal: ");
+                    inputHexa = input.next();
+                    System.out.println(Integer.parseInt(inputHexa, 16));
+                    break;
+            }
+        } while (opsi != 0);
+    }
+}
