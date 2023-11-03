@@ -1,3 +1,5 @@
+package AOK;
+import java.math.BigInteger;
 import java.util.Scanner;
 public class konversiBilangan {
     public static void main(String[] args) {
@@ -32,16 +34,15 @@ public class konversiBilangan {
                 case 2: //desimal ke biner
                     System.out.print("Masukkan angka desimal: ");
                     int n = input.nextInt();
-                    System.out.println();
                     int bagi, sisa = 0;
-                    String biner="";
-                    String stringSisa="";
+                    String biner = "";
+                    String stringSisa = "";
 
                     while (n > 0) {
                         bagi = n / 2;
                         sisa = n % 2;
                         stringSisa = String.valueOf(sisa);
-                        biner = stringSisa+biner;
+                        biner = stringSisa + biner;
                         n = bagi;
                     }
                     System.out.printf("%s\n", biner);
@@ -56,7 +57,9 @@ public class konversiBilangan {
 
                 case 4: //heksadesimal ke biner
                     System.out.print("Masukkan bilangan/karakter hexadesimal: ");
-                    inputHexa = input.nextLine();
+                    inputHexa = input.next();
+                    biner = new BigInteger(inputHexa, 16).toString(2);
+                    System.out.println(biner);
                     break;
 
                 case 5: //desimal ke heksadesimal
